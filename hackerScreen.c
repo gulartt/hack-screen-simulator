@@ -1,38 +1,62 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <locale.h>
 #include <conio.h>
 #include <math.h>
+#include <Windows.h>
+#include <time.h>
 
 // Samuel Gulart Moura - https://www.linkedin.com/in/samuel-gulart-656971216 - 09/01/2022
 
-void limpaTela()
+void cleanScreen()
 {
     system("@cls||clear");
 }
 
-main(){
+int main(){
+    char randomKeys[][45] = {"Checking Values ", "Testing Updates ", "Struct group info ", ".Usage Storage Style ", "\n", "return null ", "invade new clients ",
+    "Create Balance \n", "group_info->nblocks = nblocks;", "nblocks = nblocks ? : 1; \n", "Download updating ", "b = (void *)__get_free_page(GFP_USER);\n\n", "\t"};
 
-    char randomKeys[][45] = {"Checking Values ", "Testing Updates ", "Struct group info ", ".Usage Storage Style ", "\n", "return null ", "invade new clients ", "Create Balance \n", "group_info->nblocks = nblocks;", "nblocks = nblocks ? : 1; \n", "Download updating ", "b = (void *)__get_free_page(GFP_USER);", "\n\n"};
     int dado;
 
-    setlocale(LC_ALL, "Portuguese");
+    //menu screen
+    cleanScreen();
     printf("========================================================================================================================");
-    printf("================================================= HACKER TYPER 1.0 =====================================================");
+    printf("================================================= HACKER SCREEN 1.0 ====================================================");
     printf("========================================================================================================================\n");
-    printf("\n Hey user, welcome to >> HACKER TYPER 1.0 << press any key to init\n\n >> ");
+    printf("\nHey user, welcome to >> HACKER TYPER 1.0 << press any key to start... ");
     getche();
-    limpaTela();
-    printf("========================================================================================================================");
-    printf("\n================================================= HACKER TYPER 1.0 =====================================================\n");
-    printf("========================================================================================================================\n\n\n\n");
 
+    cleanScreen();
+
+    //loading screen
+    printf("\nPlease Wait...Loading\n");
+    printf("\n\n");
+
+    for(int i = 0; i < 120 ; i++){
+        Sleep(12);
+        printf("%c", 219);
+    }
+    system("COLOR 02");
+    printf("\n\n\nSucessfully loaded!!");
+
+    Sleep(1200);
+    cleanScreen();
     srand(time(NULL));
 
+    //hacking screen
     while(!kbhit()){
-        system("COLOR 02");
         dado = rand() % 13 + 1;
         printf(randomKeys[dado]);
         Sleep(100);
     }
+
+    //pentest result
+    if(dado >= 6){
+        system("COLOR 0C");
+        printf("\n\n\t\t\t\t\t\tACESS DENIED!!\n\n");
+    }else{
+        printf("\n\n\t\t\t\t\t\tACESS GRANTED!!\n\n");
+    }
+
+    Sleep(1200);
 }
